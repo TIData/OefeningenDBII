@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>  
+<ploegen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="voetbal.xsd">
+  <ploeg stamnummer="3">
+    <clubnaam>Club Brugge</clubnaam>
+    <email>info@clubbrugge.be</email>
+    <website>www.clubbrugge.be</website>
+    <klasse>Jupiler Pro League</klasse>
+    <trainer>
+      <voornaam>Michel</voornaam>
+      <familienaam>Preud'homme</familienaam>
+    </trainer>
+    <spelers>
+       <speler>
+          <naam>
+            <voornaam>Timmy</voornaam>
+            <familienaam>Simons</familienaam>
+          </naam>
+          <geboortedatum>1976-12-11</geboortedatum>
+          <nationaliteit>Belg</nationaliteit>
+      </speler>
+
+      <speler>
+        <naam>
+          <voornaam>Abdoulay</voornaam>
+          <familienaam>Diaby</familienaam>
+        </naam>
+        <geboortedatum>1791-03-21</geboortedatum>
+        <nationaliteit>Malinees/Frans</nationaliteit>
+        <international>J</international>
+      </speler>
+    </spelers>
+  </ploeg>
+  <ploeg stamnummer="700000">
+    <clubnaam>K.M.S.K. Deinze</clubnaam>
+    <email>info@kmskdeinze.be</email>
+    <website>www.kmskdeinze.be</website>
+    <klasse>Tweede klasse</klasse>
+    <trainer>
+       <voornaam>Geoffrey</voornaam>
+       <familienaam>Claes</familienaam>
+    </trainer>
+    <spelers>
+      <speler>
+        <naam>
+          <voornaam>Sandro</voornaam>
+          <familienaam>Calabro</familienaam>
+        </naam>
+        <geboortedatum>1984-08-15</geboortedatum>
+        <nationaliteit>Spaans/Belg</nationaliteit>
+        <international>N</international>
+      </speler>
+    </spelers>
+  </ploeg>
+</ploegen>

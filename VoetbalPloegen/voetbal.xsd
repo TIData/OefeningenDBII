@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ploegen" type="ploegenType"/>
+  <xs:element name="ploeg" type="ploegType"/>
+  <xs:element name="clubnaam" type="naamType"/>
+  <xs:element name="email" type="emailType" />
+  <xs:element name="website" type="xs:anyURI" />
+  <xs:element name="klasse" type="klasseType"/>
+  <xs:element name="trainer" type="persoonsType" />
+  <xs:element name="voornaam" type="naamType"/>
+  <xs:element name="familienaam" type="naamType"/>
+  <xs:element name="spelers" type="spelersType" />
+  <xs:element name="speler" type="spelerType" />
+  <xs:element name="naam" type="naamType"/>
+  <xs:element name="geboortedatum" type="geboortedatumType"/>
+  <xs:element name="nationaliteit" type="nationaliteitType"/>
+  <xs:element name="internationaal" type="internationalType"/>
+  <xs:attribute name="stamnummer" type="stamnummerType" />
+
+
+  <xs:simpleType name="naamType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="50" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="stamnummerType">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="1" />
+      <xs:maxInclusive value="9500" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="emailType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\w*\.\w*@\w*\.\w{2,3}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="klasseType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Jupiler Pro League"/>
+      <xs:enumeration value="Tweede klasse"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="geboortedatumType">
+    <xs:restriction base="xs:date">
+      <xs:minInclusive value="1972-01-01" />
+      <xs:maxExclusive value="2000-01-01" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="nationaliteitType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-zA-Z]+(/[a-zA-Z]+)?" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="internationalType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="J"/>
+      <xs:enumeration value="N"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+
+  <xs:complexType name="ploegenType">
+    <xs:sequence>
+      <xs:element ref="ploeg" minOccurs="1" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="spelersType">
+    <xs:sequence>
+      <xs:element ref="speler" minOccurs="1" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="spelerType">
+    <xs:sequence>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="persoonsType">
+    <xs:all>
+      <xs:element ref="voornaam" />
+      <xs:element ref="familienaam" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="ploegType">
+    <xs:sequence>
+      <xs:element ref="clubnaam" />
+      <xs:element ref="email" />
+      <xs:element ref="website" minOccurs="0" />
+      <xs:element ref="klasse" />
+      <xs:element ref="trainer" />
+      <xs:element ref="spelers" />
+    </xs:sequence>
+    <xs:attribute ref="stamnummer" use="required"/>
+  </xs:complexType>
+  
+</xs:schema>
