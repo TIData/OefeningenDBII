@@ -79,10 +79,10 @@
 
   <xs:complexType name="spelerType">
     <xs:sequence>
-      <xs:element ref="naam"></xs:element>
-      <xs:element ref="geboortedatum"></xs:element>
-      <xs:element ref="nationaliteit"></xs:element>
-      <xs:element ref="international" minOccurs="0"></xs:element>
+      <xs:element ref="naam" />
+      <xs:element ref="geboortedatum" />
+      <xs:element ref="nationaliteit" />
+      <xs:element ref="international" />
     </xs:sequence>
   </xs:complexType>
 
