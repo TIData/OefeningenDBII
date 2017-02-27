@@ -11,10 +11,10 @@
   <xs:element name="familienaam" type="naamType"/>
   <xs:element name="spelers" type="spelersType" />
   <xs:element name="speler" type="spelerType" />
-  <xs:element name="naam" type="naamType"/>
+  <xs:element name="naam" type="persoonsType"/>
   <xs:element name="geboortedatum" type="geboortedatumType"/>
   <xs:element name="nationaliteit" type="nationaliteitType"/>
-  <xs:element name="internationaal" type="internationalType"/>
+  <xs:element name="international" type="internationalType"/>
   <xs:attribute name="stamnummer" type="stamnummerType" />
 
 
@@ -79,6 +79,9 @@
 
   <xs:complexType name="spelerType">
     <xs:sequence>
+      <xs:element ref="naam"></xs:element>
+      <xs:element ref="geboortedatum"></xs:element>
+      <xs:element ref="nationaliteit"></xs:element>
     </xs:sequence>
   </xs:complexType>
 
