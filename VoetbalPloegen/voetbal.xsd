@@ -82,6 +82,7 @@
       <xs:element ref="naam"></xs:element>
       <xs:element ref="geboortedatum"></xs:element>
       <xs:element ref="nationaliteit"></xs:element>
+      <xs:element ref="international" minOccurs="0"></xs:element>
     </xs:sequence>
   </xs:complexType>
 
