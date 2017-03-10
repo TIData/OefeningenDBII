@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<klantenlijst xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Klantenlijst.xsd">
+  <klant>
+    <identificatiegegevens>
+      <klantnr> KL40525</klantnr>
+      <klantnaam>
+        <aanspreking>De heer</aanspreking >
+        <voornaam>Jan</voornaam>
+        <familienaam>De Nul</familienaam>
+      </klantnaam>
+      <straat> Baggerweg </straat>
+      <huisnummer Bus="A">15</huisnummer>
+      <landcode>BEL</landcode>
+      <gemeente>9000/Gent</gemeente>
+    </identificatiegegevens>
+    <kenmerken>
+      <kredietlimiet>2500</kredietlimiet>
+      <leveringsvoorwaarden>gratis LT 25 km</leveringsvoorwaarden>
+    </kenmerken>
+    <bestellingen>
+      <bestelling>
+        <bedrag betaling="contant">1254,15</bedrag>
+        <aanduiding betaald="gedeeltelijk"/>
+      </bestelling>
+    </bestellingen>
+  </klant>
+  <klant>
+    <identificatiegegevens>
+      <klantnr> KL26841</klantnr>
+      <bedrijfnaam>
+        <naam>Baggerbedrijf DENUL</naam>
+        <bedrijfsvorm>VZW</bedrijfsvorm >
+      </bedrijfnaam>
+      <straat> Baggerweg </straat>
+      <huisnummer Bus="B">15</huisnummer>
+      <landcode>BEL</landcode>
+      <gemeente>9000/Gent</gemeente>
+    </identificatiegegevens>
+    <kenmerken>
+      <kredietlimiet>9500</kredietlimiet>
+      <leveringsvoorwaarden>steeds op onze kosten</leveringsvoorwaarden>
+    </kenmerken>
+    <bestellingen>
+      <bestelling>
+        <bedrag betaling="digitaal">25864,15</bedrag>
+        <aanduiding betaald="volledig"/>
+      </bestelling>
+      <bestelling>
+        <bedrag betaling="digitaal">10000,00</bedrag>
+        <aanduiding betaald="volledig"/>
+      </bestelling>
+      <bestelling>
+        <bedrag betaling="digitaal">66400,00</bedrag>
+        <aanduiding betaald="volledig"/>
+      </bestelling>
+    </bestellingen>
+  </klant>
+</klantenlijst>

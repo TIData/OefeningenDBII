@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="klantenlijst" type="klantenlijstType" />
+  <xs:element name="klant" type="klantType" />
+  <xs:element name="identificatiegegevens" type="identificatiegegevensType"/>
+  <xs:element name="klantnr" type="klantnrType" />
+  <xs:element name="klantnaam" type="klantnaamType"/>
+  <xs:element name="bedrijfnaam" type="bedrijfnaamType" />
+  <xs:element name="aanspreking" type="aansprekingType"/>
+  <xs:element name="voornaam" type="naamType"/>
+  <xs:element name="familienaam" type="naamType"/>
+  <xs:element name="straat" type="xs:string"/>
+  <xs:element name="huisnummer" type="huisnummerType"/>
+  <xs:element name="landcode" type="landcodeType"/>
+  <xs:element name="gemeente" type="gemeenteType"/>
+  <xs:element name="kenmerken" type="kenmerkenType"/>
+  <xs:element name="kredietlimiet" type="kredietlimietType"/>
+  <xs:element name="leveringsvoorwaarden" type="leveringsvoorwaardenType"/>
+  <xs:element name="datumlaatstebestelling" type="xs:date"/>
+  <xs:element name="bestellingen" type="bestellingenType"/>
+  <xs:element name="bestelling" type="bestellingType"/>
+  <xs:element name="bedrag" type="bedragType"/>
+  <xs:element name="aanduiding" type="aanduidingType"/>
+  <xs:element name="naam" type="naamType" />
+  <xs:element name="bedrijfsvorm" type="bedrijfsvormType"/>
+  <xs:attribute name="betaald" type="betaaldType"/>
+  <xs:attribute name="Bus" type="busType"/>
+  <xs:attribute name="betaling" type="betalingType"/>
+
+  <xs:simpleType name="klantnrType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="KL[0-9]{5}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="aansprekingType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="De heer" />
+      <xs:enumeration value="Mevrouw" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="bedrijfsvormType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="VZW" />
+      <xs:enumeration value="BVBA" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="naamType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="50"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="landcodeType">
+    <xs:restriction base="xs:string">
+      <xs:length value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="gemeenteType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{4}/\w+" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="kredietlimietType">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="100" />
+      <xs:maxInclusive value="8000" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="leveringsvoorwaardenType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value=".*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="bedragGetalType">
+    <xs:restriction base="xs:decimal">
+      <xs:maxInclusive value="99999.99" />
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="bedragType">
+    <xs:simpleContent>
+      <xs:extension base="bedragGetalType">
+        <xs:attribute  ref="betaling"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="klantenlijstType">
+    <xs:sequence>
+      <xs:element ref="klant" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="klantType">
+    <xs:sequence>
+      <xs:element ref="identificatiegegevens" />
+      <xs:element ref="kenmerken" />
+      <xs:element ref="bestellingen" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="identificatiegegevensType">
+    <xs:sequence>
+      <xs:element ref="klantnr" />
+      <xs:choice>
+        <!-- Dit kan ook via de definitie van een nieuw complexType -->
+        <xs:element ref="klantnaam" />
+        <xs:element ref="bedrijfnaam" />
+      </xs:choice>
+      <xs:element ref="straat" />
+      <xs:element ref="huisnummer" />
+      <xs:element ref="landcode" />
+      <xs:element ref="gemeente" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="klantnaamType">
+    <xs:sequence>
+      <xs:element ref="aanspreking"/>
+      <xs:element ref="voornaam" />
+      <xs:element ref="familienaam" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="bedrijfnaamType">
+    <xs:sequence>
+      <xs:element ref="naam"/>
+      <xs:element ref="bedrijfsvorm" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="huisnummerType">
+    <xs:simpleContent>
+      <xs:extension base="xs:int">
+        <xs:attribute name="Bus" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="kenmerkenType">
+    <xs:all minOccurs="0">
+      <xs:element ref="kredietlimiet" minOccurs="0"/>
+      <xs:element ref="leveringsvoorwaarden" minOccurs="0"/>
+      <xs:element ref="datumlaatstebestelling" minOccurs="0"/>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="bestellingenType">
+    <xs:sequence minOccurs="1" maxOccurs="unbounded">
+      <xs:element ref="bestelling"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="bestellingType">
+    <xs:sequence>
+      <xs:element ref="bedrag"/>
+      <xs:element ref="aanduiding"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="aanduidingType">
+    <xs:attribute ref="betaald"/>
+  </xs:complexType>
+
+  <xs:simpleType name="betaaldType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="volledig"/>
+      <xs:enumeration value="gedeeltelijk"/>
+      <xs:enumeration value="niet"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="busType">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="betalingType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="cash"/>
+      <xs:enumeration value="digitaal"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>
