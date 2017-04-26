@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<wielerploegen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="wielerploegen.xsd">
+  <wielerploeg landcode="BELG">
+    <hoofdsponsor>Etixx Quick-Step</hoofdsponsor>
+    <email>info@etixxquickstep.be</email>
+    <website>www.etixxquickstep.be</website>
+    <classificatie>Protour</classificatie>
+    <sportdirecteur>
+      <voornaam>Wilfried</voornaam>
+      <familienaam>Peeters</familienaam>
+    </sportdirecteur>
+    <renners>
+       <renner>
+          <naam>
+            <voornaam>Tom</voornaam>
+            <familienaam>Boonen</familienaam>
+          </naam>
+          <geboortedatum>1880-10-15</geboortedatum>
+          <nationaliteit>Belg</nationaliteit>
+          <hematocrietwaarde>0.50</hematocrietwaarde>
+      </renner>
+      <renner>
+          <naam>
+            <voornaam>Gianluca</voornaam>
+            <familienaam>Brambilla</familienaam>
+          </naam>
+          <geboortedatum>1987-08-22</geboortedatum>
+          <nationaliteit>Italiaan</nationaliteit>
+          <hematocrietwaarde>0.70</hematocrietwaarde>
+      </renner>
+    </renners>
+  </wielerploeg>
+  <wielerploeg landcode="RUS">
+    <hoofdsponsor>Itera-Katjoesja</hoofdsponsor>
+    <email>info@iterakatjoesja.ru</email>
+    <classificatie>Continentaal</classificatie>
+    <sportdirecteur>
+      <familienaam>Morscher</familienaam>
+      <voornaam>Harald</voornaam>
+    </sportdirecteur>
+    <renners>
+       <renner>
+          <naam>
+            <voornaam>Petr</voornaam>
+            <familienaam>Ignatenko</familienaam>
+          </naam>
+          <geboortedatum>1987-09-27</geboortedatum>
+          <nationaliteit>Rus;Oekrainer</nationaliteit>
+          <hematocrietwaarde>0.52</hematocrietwaarde>
+      </renner>
+    </renners>
+  </wielerploeg>
+</wielerploegen>

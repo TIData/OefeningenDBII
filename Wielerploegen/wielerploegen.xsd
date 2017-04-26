@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="wielerploegen" type="wielerploegenType"/>
+  <xs:element name="wielerploeg" type="wielerploegType"/>
+  <xs:element name="hoofdsponsor" type="naamType"/>
+  <xs:element name="email" type="emailType"/>
+  <xs:element name="website" type="xs:anyURI"/>
+  <xs:element name="classificatie" type="classificatieType"/>
+  <xs:element name="sportdirecteur" type="sportdirecteurType"/>
+  <xs:element name="voornaam" type="naamType"/>
+  <xs:element name="familienaam" type="naamType"/>
+  <xs:element name="renners" type="rennersType"/>
+  <xs:element name="renner" type="rennerType"/>
+  <xs:element name="naam" type="complexNaamType"/>
+  <xs:element name="geboortedatum" type="geboortedatumType"/>
+  <xs:element name="nationaliteit" type="nationaliteitType"/>
+  <xs:element name="hematocrietwaarde" type="hematocrietwaardeType"/>
+
+  <xs:attribute name="landcode" type="landcodeType"/>
+
+  <xs:simpleType name="emailType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\w+\.\w+@\w+\.\w+" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="naamType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="60"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="classificatieType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Protour"/>
+      <xs:enumeration value="Continentaal"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="wielerploegenType">
+    <xs:sequence>
+      <xs:element ref="wielerploeg" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="wielerploegType">
+    <xs:sequence>
+      <xs:element ref="hoofdsponsor" />
+      <xs:element ref="email" />
+      <xs:element ref="website" minOccurs="0" />
+      <xs:element ref="classificatie" />
+      <xs:element ref="sportdirecteur" />
+      <xs:element ref="renners" />
+    </xs:sequence>
+    <xs:attribute ref="landcode"/>
+  </xs:complexType>
+
+  <xs:complexType name="rennersType">
+    <xs:sequence>
+      <xs:element ref="renner" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sportdirecteurType">
+    <xs:all>
+      <xs:element ref="voornaam" />
+      <xs:element ref="familienaam" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="rennerType">
+    <xs:sequence>
+      <xs:element ref="naam"/>
+      <xs:element ref="geboortedatum"/>
+      <xs:element ref="nationaliteit"/>
+      <xs:element ref="hematocrietwaarde"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="complexNaamType">
+    <xs:all>
+      <xs:element ref="voornaam"/>
+      <xs:element ref="familienaam"/>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:simpleType name="landcodeType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Z]{3}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="nationaliteitType">
+    <xs:restriction base="xs:string">
+      <xs:pattern  value="\w+(;\w+)?"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="hematocrietwaardeType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2" />
+      <xs:minInclusive value="0.30"/>
+      <xs:maxInclusive value="0.65"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="geboortedatumType">
+    <xs:restriction base="xs:date">
+      <xs:minInclusive value="1972-01-01"/>
+      <xs:maxExclusive value="2000-01-01"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
